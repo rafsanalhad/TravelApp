@@ -4,8 +4,9 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-cards";
-import { reviewData} from "@/data/data";
+import { reviewData } from "@/data/data";
 import { FaStar } from "react-icons/fa";
+import Image from "next/image";
 
 import { EffectCards } from "swiper/modules";
 
@@ -21,14 +22,33 @@ const ReviewsSlider = () => {
         {reviewData.map((item) => (
           <SwiperSlide key={item.id} className="bg-white rounded-3xl block">
             <div className="w-[80%] mx-auto mt-16">
-                <p className="text-xs sm:text-sm md:text-base font-semibold">{item.review}</p>
+              <p className="text-xs sm:text-sm md:text-base font-semibold">
+                {item.review}
+              </p>
             </div>
             <div className="flex items-center mt-4">
-                <FaStar className="md:w-6 md:h-6 w-3 h-3 text-yellow-600" />
-                <FaStar className="md:w-6 md:h-6 w-3 h-3 text-yellow-600" />
-                <FaStar className="md:w-6 md:h-6 w-3 h-3 text-yellow-600" />
-                <FaStar className="md:w-6 md:h-6 w-3 h-3 text-yellow-600" />
-                <FaStar className="md:w-6 md:h-6 w-3 h-3 text-yellow-600" />
+              <FaStar className="md:w-6 md:h-6 w-3 h-3 text-yellow-600" />
+              <FaStar className="md:w-6 md:h-6 w-3 h-3 text-yellow-600" />
+              <FaStar className="md:w-6 md:h-6 w-3 h-3 text-yellow-600" />
+              <FaStar className="md:w-6 md:h-6 w-3 h-3 text-yellow-600" />
+              <FaStar className="md:w-6 md:h-6 w-3 h-3 text-yellow-600" />
+            </div>
+            <div className="mt-10">
+              <div className="flex-items-center space-x-4">
+                <Image
+                  src={item.image}
+                  width={60}
+                  height={60}
+                  alt="client"
+                  className="rounded-full"
+                />
+                <div>
+                    <p className="text-sm sm:text-lg font-semibold">{item.name}</p>
+                    <p className="text-gray-600 text-xs sm:text-base">
+                        Web Developer
+                    </p>
+                </div>
+              </div>
             </div>
           </SwiperSlide>
         ))}
